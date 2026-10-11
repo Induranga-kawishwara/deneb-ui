@@ -107,7 +107,8 @@
         "Mark a control's label and destination as separate fields when both are editable.",
         "Keep cleared strings, images, zero, false booleans, actions, and required items mounted and selectable.",
         "Author data-preview-static deliberately in JSX on the smallest genuinely fixed element. Never use a script, compiler transform, wrapper, or post-build HTML rewrite to blanket-inject static markers.",
-        "Never put data-preview-field-path, data-preview-list-path, or data-preview-item-path on a data-preview-static element or anywhere under a data-preview-static ancestor. The visual editor intentionally ignores the complete static subtree."
+        "Never put data-preview-field-path, data-preview-list-path, or data-preview-item-path on a data-preview-static element or anywhere under a data-preview-static ancestor. The visual editor intentionally ignores the complete static subtree.",
+        "Never pass non-standard visual editing props (e.g. previewItemPath) to elements spreading ...rest to native DOM or Framer Motion elements. Always destructure them or use valid HTML data-preview-* attributes."
       ]
     },
     "listsAndCards": {
@@ -134,7 +135,8 @@
         "Keep every object-list demo item complete, or explicitly declare fields when the default list is empty.",
         "Keep demo list length within minItems and maxItems.",
         "Omit maxItems for a genuinely unbounded list.",
-        "Test zero, minimum, one, maximum when present, add, duplicate, remove, and reorder states."
+        "Test zero, minimum, one, maximum when present, add, duplicate, remove, and reorder states.",
+        "For React list keys, always use fallback keys such as key={item.id ?? `${collectionName}-${index}`}. Never use key={item.id} alone when id may be undefined in schema or payload."
       ]
     },
     "images": {

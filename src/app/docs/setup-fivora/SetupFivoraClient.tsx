@@ -42,6 +42,8 @@ export function SetupFivoraClient() {
 - NEVER link merchant-managed products to /products/\${product.id}; products created after build time will 404.
 - Use PlatformProductDetail.renderProduct or usePlatformProductDetail() when the template needs a custom design.
 - Next.js <Link> and useRouter() apply next.config basePath automatically. Pass logical routes directly, such as router.push(pageRoute(pageKey)). NEVER use router.push(withBasePath(...)), router.replace(withBasePath(...)), or <Link href={withBasePath(...)}>; reserve withBasePath() for local asset URLs and direct window.location navigation.
+- React List Keys: ALWAYS provide safe fallback keys when mapping arrays: key={item.id ?? `${collectionName}-${index}`}. Never use bare key={item.id} alone because editorSchema lists or incoming site data might not declare an id field.
+- Never leak non-standard helper props (such as previewItemPath, previewPath) onto native DOM elements or Framer Motion (<motion.li {...rest}>). Explicitly destructure helper props or pass only valid HTML data-preview-* attributes.
 
 ${AI_MASTER_PROMPT}`;
 
