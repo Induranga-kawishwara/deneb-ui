@@ -45,6 +45,8 @@ EXACT VISUAL-EDITING MARKERS
 6. data-preview-static is only for the smallest genuinely fixed element. NEVER place data-preview-field-path, data-preview-list-path, or data-preview-item-path on a data-preview-static element or anywhere below a data-preview-static ancestor. Never blanket-mark wrappers, pages, layouts, or the HTML/body root static.
 7. Never create hidden marker banks, aria-hidden targets, display:none targets, fake duplicates, compiler injection, or post-build HTML rewriting to satisfy validation.
 8. For editable links, model and mark label and destination separately when both are editable. For images, mark the real image slot and keep local public assets base-path safe.
+9. For React list keys, ALWAYS use safe fallback keys: `key={item.id ?? `${collectionName}-${index}`}`. Never use bare `key={item.id}` without fallback when mapping arrays; lists in `editorSchema` or incoming site data might not declare an `id` field, causing React console errors.
+10. NEVER leak non-standard visual editing helper props (e.g. `previewItemPath`, `previewPath`) onto native DOM elements or Framer Motion (`<motion.li {...rest}>`). Always explicitly destructure helper props or pass only valid HTML `data-preview-*` attributes.
 
 SELECTED PAGES
 1. requirements.requiredPages is the runtime source of truth.
