@@ -93,6 +93,8 @@ export const SIDEBAR_NAV: NavSection[] = [
       { title: 'GoogleFeedback', href: '/docs/components/google-feedback', badge: 'Google', isNew: true },
       { title: 'TestimonialSection', href: '/docs/components/testimonial-section', badge: 'Editorial', isNew: true },
       { title: 'CartDrawer', href: '/docs/components/cart-drawer', badge: 'Hot', isNew: true },
+      { title: 'Checkout', href: '/docs/components/checkout', badge: 'E-Com', isNew: true },
+      { title: 'OrderSuccess', href: '/docs/components/order-success', badge: 'Receipt', isNew: true },
       { title: 'FilterSidebar', href: '/docs/components/filter-sidebar', isNew: true },
       { title: 'ProductDetail', href: '/docs/components/product-detail', badge: 'Hot', isNew: true },
       { title: 'PlatformProductDetail', href: '/docs/components/platform-product-detail', badge: 'Safe', isNew: true },

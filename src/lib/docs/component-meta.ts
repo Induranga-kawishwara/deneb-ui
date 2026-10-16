@@ -55,6 +55,8 @@ export const COMPONENT_SLUGS: string[] = [
   'map',
   'product-card',
   'cart-drawer',
+  'checkout',
+  'order-success',
   'editable-section',
   'section',
 ];
@@ -381,6 +383,20 @@ export const COMPONENT_META: Record<string, ComponentMeta> = {
     description: "High-converting e-commerce product card with Sri Lankan Rupee (LKR) pricing, brand attribution, dual WhatsApp inquiry & Add to Cart actions, and Fivora visual editing synchronization.",
     category: "E-Commerce & Storefront",
     keywords: ["ProductCard","ProductCard component","React component","Tailwind CSS","Deneb UI","E-Commerce & Storefront","visual-first","storefront UI","headless e-commerce"],
+  },
+  'checkout': {
+    slug: 'checkout',
+    title: "Checkout",
+    description: "Universal e-commerce checkout page component supporting both direct WhatsApp ordering and full online checkout (PayHere card payments, COD, Bank Transfer) with inventory auto-sync and visual editing.",
+    category: "E-Commerce & Storefront",
+    keywords: ["Checkout", "Payment", "PayHere", "Cash on Delivery", "COD", "Bank Transfer", "Order", "Cart", "Fivora"],
+  },
+  'order-success': {
+    slug: 'order-success',
+    title: "OrderSuccess",
+    description: "Post-purchase order confirmation and invoice receipt page with live payment status pills, printable receipts, and direct WhatsApp customer support.",
+    category: "E-Commerce & Storefront",
+    keywords: ["OrderSuccess", "Order Confirmation", "Receipt", "Invoice", "Tracking", "Fivora", "Deneb UI"],
   },
   'cart-drawer': {
     slug: 'cart-drawer',

@@ -12,6 +12,8 @@ import {
   TrustBadges,
   StickyMobileBar,
   CartDrawer,
+  Checkout,
+  OrderSuccess,
   FilterSidebar,
   CartProvider,
   useCart,
@@ -1233,6 +1235,35 @@ function InteractiveCartDrawerDemoInner() {
         storeName="DENEB Lanka Store"
         currency="LKR"
         freeShippingThreshold={15000}
+      />
+    </div>
+  );
+}
+
+
+function InteractiveCheckoutDemo() {
+  return (
+    <CartProvider>
+      <div className="w-full max-w-4xl mx-auto rounded-2xl border border-neutral-800 bg-neutral-950 p-4 sm:p-6 text-white">
+        <Checkout
+          storeName="Ceylon Luxe Commerce"
+          whatsappNumber="94771234567"
+          currency="LKR"
+          defaultDeliveryFee={350}
+          freeDeliveryThreshold={10000}
+        />
+      </div>
+    </CartProvider>
+  );
+}
+
+function InteractiveOrderSuccessDemo() {
+  return (
+    <div className="w-full max-w-2xl mx-auto rounded-2xl border border-neutral-800 bg-neutral-950 p-4 sm:p-6 text-white">
+      <OrderSuccess
+        storeName="Ceylon Luxe Commerce"
+        whatsappNumber="94771234567"
+        currency="LKR"
       />
     </div>
   );
@@ -3965,6 +3996,73 @@ export default function FeaturedProduct() {
     nextPage: { title: 'CartDrawer', href: '/docs/components/cart-drawer' },
   },
 
+  'checkout': {
+    title: 'Checkout / EditableCheckout',
+    description: 'Universal high-converting checkout page component supporting both Direct WhatsApp Ordering and Full E-Commerce (PayHere online payments, Cash on Delivery, Bank Transfer) with inventory auto-sync and Fivora Visual Editing.',
+    category: 'E-Commerce & Storefront',
+    badge: 'PayHere & COD',
+    previewComponent: <InteractiveCheckoutDemo />,
+    previewCode: `import { Checkout } from "@deneb-ui/ui";
+
+export default function CheckoutPage() {
+  return (
+    <main className="min-h-screen bg-neutral-950 py-12">
+      <Checkout
+        storeName="Ceylon Luxe Commerce"
+        whatsappNumber="94771234567"
+        currency="LKR"
+        defaultDeliveryFee={350}
+        freeDeliveryThreshold={10000}
+      />
+    </main>
+  );
+}`,
+    usageCode: `import { Checkout } from "@deneb-ui/ui";`,
+    cliCommand: `npx @deneb-ui/cli add checkout`,
+    props: [
+      { name: 'basePath', type: 'string', defaultValue: "'checkout'", description: 'Root key in site-data.json for Fivora visual editing.' },
+      { name: 'apiEndpoint', type: 'string', defaultValue: "'/site-orders/create'", description: 'Backend order submission endpoint.' },
+      { name: 'configEndpoint', type: 'string', defaultValue: "'/site-orders/config'", description: 'Backend payment capabilities endpoint.' },
+      { name: 'successUrl', type: 'string', defaultValue: "'/order-success'", description: 'URL redirected upon order completion.' },
+      { name: 'currency', type: 'string', defaultValue: "'LKR'", description: 'Store currency code.' },
+      { name: 'defaultDeliveryFee', type: 'number', description: 'Base shipping fee in LKR.' },
+      { name: 'freeDeliveryThreshold', type: 'number', description: 'Order subtotal required to qualify for free shipping.' },
+      { name: 'checkoutMode', type: "'WHATSAPP_ONLY' | 'FULL_ECOMMERCE'", description: 'Storefront operating mode.' },
+    ],
+    prevPage: { title: 'CartDrawer', href: '/docs/components/cart-drawer' },
+    nextPage: { title: 'OrderSuccess', href: '/docs/components/order-success' },
+  },
+
+  'order-success': {
+    title: 'OrderSuccess / EditableOrderSuccess',
+    description: 'Post-purchase order confirmation and invoice receipt page with live payment status pills, printable receipts, and direct WhatsApp customer support.',
+    category: 'E-Commerce & Storefront',
+    badge: 'Invoice & Tracking',
+    previewComponent: <InteractiveOrderSuccessDemo />,
+    previewCode: `import { OrderSuccess } from "@deneb-ui/ui";
+
+export default function OrderSuccessPage() {
+  return (
+    <main className="min-h-screen bg-neutral-950 py-12">
+      <OrderSuccess
+        storeName="Ceylon Luxe Commerce"
+        whatsappNumber="94771234567"
+        currency="LKR"
+      />
+    </main>
+  );
+}`,
+    usageCode: `import { OrderSuccess } from "@deneb-ui/ui";`,
+    cliCommand: `npx @deneb-ui/cli add order-success`,
+    props: [
+      { name: 'basePath', type: 'string', defaultValue: "'orderSuccess'", description: 'Root key in site-data.json for Fivora visual editing.' },
+      { name: 'storeName', type: 'string', description: 'Store name printed on the receipt.' },
+      { name: 'whatsappNumber', type: 'string', description: 'Store WhatsApp support phone number.' },
+      { name: 'currency', type: 'string', defaultValue: "'LKR'", description: 'Store currency code.' },
+    ],
+    prevPage: { title: 'Checkout', href: '/docs/components/checkout' },
+    nextPage: { title: 'EditableSection', href: '/docs/components/editable-section' },
+  },
   'cart-drawer': {
     title: 'CartDrawer',
     description: 'Interactive slide-over cart drawer with real-time state persistence, LKR currency formatting, quantity controls, and one-click unified WhatsApp checkout compiling all cart products into a single order chat message.',
