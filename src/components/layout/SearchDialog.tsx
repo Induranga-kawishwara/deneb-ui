@@ -52,6 +52,8 @@ export const SEARCH_INDEX: SearchItem[] = [
   { title: 'GoogleFeedback', category: 'Components', slug: '/docs/components/google-feedback', description: 'Official Google Customer Review card section with verified badge and live 1-5 star DOM sync.' },
   { title: 'TestimonialSection', category: 'Components', slug: '/docs/components/testimonial-section', description: 'Editorial critic and connoisseur review showcase with large quotation typography.' },
   { title: 'CartDrawer', category: 'Components', slug: '/docs/components/cart-drawer', description: 'Slide-over shopping cart drawer with quantity steppers, free shipping progress bar, and WhatsApp checkout.' },
+  { title: 'Checkout', category: 'Components', slug: '/docs/components/checkout', description: 'Universal e-commerce checkout page with PayHere online payments, COD, and WhatsApp mode.' },
+  { title: 'OrderSuccess', category: 'Components', slug: '/docs/components/order-success', description: 'Order confirmation and invoice tracking page with printable receipts.' },
   { title: 'FilterSidebar', category: 'Components', slug: '/docs/components/filter-sidebar', description: 'Faceted catalog filtering sidebar with category chips, price range slider, and size swatches.' },
   { title: 'ProductDetail', category: 'Components', slug: '/docs/components/product-detail', description: 'Complete single product view with multi-image gallery, size/color selector, WhatsApp CTA, and policy tabs.' },
   { title: 'PlatformProductDetail', category: 'Components', slug: '/docs/components/platform-product-detail', description: 'Stable static-export product route controller with live catalog lookup, retries, and customizable rendering.' },
