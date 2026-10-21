@@ -39,7 +39,7 @@ jobs:
           cache: npm
 
       - name: Install Dependencies
-        run: npm install
+        run: npm ci
 
       - name: Update DENEB Packages to Latest
         run: |
@@ -61,4 +61,4 @@ jobs:
           git add -A
           VERSION_TAG="${{ github.event.client_payload.version || github.event.inputs.version || 'latest' }}"
           git commit -m "chore(sync): update to @deneb-ui release v${VERSION_TAG} [skip ci]" || echo "No changes to commit"
-          git push origin HEAD:main || echo "Push skipped or branch up to date"
+          git push origin HEAD:main

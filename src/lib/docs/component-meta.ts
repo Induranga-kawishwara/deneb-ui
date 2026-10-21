@@ -124,7 +124,7 @@ export const COMPONENT_META: Record<string, ComponentMeta> = {
   'universal-card': {
     slug: 'universal-card',
     title: "UniversalCard",
-    description: "A visual-editing-ready listing card for retail, books, menus, real estate, services, memberships, equipment, and other structured entities.",
+    description: "A visual-editing-ready generic listing renderer for books, menus, real estate, memberships, equipment, and other non-catalog entities. Products and services retain their dedicated Fivora cards.",
     category: "Storefront Sections",
     keywords: ["UniversalCard","listing card","multi-industry card","Fivora visual editing","React component","Deneb UI"],
   },
@@ -229,7 +229,7 @@ export const COMPONENT_META: Record<string, ComponentMeta> = {
   'service-card': {
     slug: 'service-card',
     title: "ServiceCard",
-    description: "Service package card with rate label, feature checkmark list, image thumbnail, and quote action.",
+    description: "Fivora service card with canonical primary/gallery media, rate label, feature checklist, and quote-oriented presentation.",
     category: "Storefront Sections",
     keywords: ["ServiceCard","ServiceCard component","React component","Tailwind CSS","Deneb UI","Storefront Sections","visual-first","storefront UI","headless e-commerce"],
   },
@@ -404,7 +404,7 @@ export const COMPONENT_META: Record<string, ComponentMeta> = {
   'product-card': {
     slug: 'product-card',
     title: "ProductCard",
-    description: "High-converting e-commerce product card with Sri Lankan Rupee (LKR) pricing, brand attribution, dual WhatsApp inquiry & Add to Cart actions, and Fivora visual editing synchronization.",
+    description: "Fivora-connected product card with canonical gallery media, numeric/range pricing, color and size variants, stock, WhatsApp inquiry, cart actions, and visual editing synchronization.",
     category: "E-Commerce & Storefront",
     keywords: ["ProductCard","ProductCard component","React component","Tailwind CSS","Deneb UI","E-Commerce & Storefront","visual-first","storefront UI","headless e-commerce"],
   },

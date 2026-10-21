@@ -113,7 +113,7 @@
     },
     "listsAndCards": {
       "preferredComponents": [
-        "Use UniversalCard for reusable multi-industry entity listings instead of cloning bespoke card markup.",
+        "Use ProductCard for Fivora products and ServiceCard for Fivora services so catalog media, pricing, variants, cart, stock, and quote behavior remain connected to the backend contract. Use UniversalCard only for other reusable multi-industry entities such as books, property, memberships, menus, or equipment; it is a renderer, not a third product/service data model.",
         "Use VehicleCard for automotive inventory backed by cards.vehicles.<id>; use EditableBrandCard, EditableBodyTypeCard, and EditableShowroomCard for related automotive views.",
         "Use Icon or EditableIcon with a fieldPath for merchant-editable icon choices instead of hardcoded SVG markup."
       ],
