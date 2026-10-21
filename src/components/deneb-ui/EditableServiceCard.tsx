@@ -2,14 +2,23 @@ import React from 'react';
 import { EditableText } from './EditableText';
 import { EditableImage } from './EditableImage';
 import { resolveCatalogImages } from './utils/catalogMedia';
+import { useCurrency } from './SiteDataProvider';
 
 export interface ServiceItem {
   id?: string | number;
   name?: string;
   title?: string;
   price?: string | number;
+  cost?: string | number;
+  amount?: string | number;
+  rate?: string | number;
+  serviceFee?: string | number;
+  servicePrice?: string | number;
+  compareAtPrice?: string | number;
+  originalPrice?: string | number;
   priceLabel?: string;
   showPrice?: boolean;
+  currency?: string;
   customData?: Record<string, unknown>;
   description?: string;
   imageUrl?: string;
@@ -47,6 +56,10 @@ export interface EditableServiceCardProps extends React.HTMLAttributes<HTMLEleme
    */
   align?: 'left' | 'center' | 'right';
   showPrice?: boolean;
+  /**
+   * Currency code override (e.g. "LKR", "USD"). If omitted, auto-resolves from live shop profile.
+   */
+  currency?: string;
 }
 
 /**
@@ -60,6 +73,7 @@ export function EditableServiceCard({
   as: Component = 'article',
   align = 'left',
   showPrice = true,
+  currency: currencyOverride,
   className = '',
   style,
   children,
@@ -80,12 +94,15 @@ export function EditableServiceCard({
   const priceLabel = service?.priceLabel ? String(service.priceLabel) : '';
   const hasPrice = effectiveShowPrice && (hasRawPrice || Boolean(priceLabel));
 
+  const liveCurrency = useCurrency();
+  const currency = currencyOverride || service?.currency as string || liveCurrency;
+
   const formattedPrice = hasRawPrice
     ? typeof rawPriceCandidate === 'number'
-      ? 'LKR ' + rawPriceCandidate.toLocaleString()
-      : String(rawPriceCandidate).includes('LKR')
+      ? currency + ' ' + rawPriceCandidate.toLocaleString()
+      : String(rawPriceCandidate).match(/^[A-Z]{3}\s/) || String(rawPriceCandidate).includes(currency)
         ? String(rawPriceCandidate)
-        : 'LKR ' + String(rawPriceCandidate)
+        : currency + ' ' + String(rawPriceCandidate)
     : '';
 
   const serviceImages = resolveCatalogImages(service);
