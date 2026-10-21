@@ -1088,6 +1088,13 @@ export function normalizeProductItem(p: unknown): ProductItem {
           ? Boolean(customData.isActive)
           : true;
 
+  const showPriceCandidate =
+    p.showPrice !== undefined
+      ? Boolean(p.showPrice)
+      : customData.showPrice !== undefined
+        ? Boolean(customData.showPrice)
+        : true;
+
   return {
     ...customData,
     ...p,
@@ -1100,6 +1107,7 @@ export function normalizeProductItem(p: unknown): ProductItem {
     available: isAvailableCandidate,
     isActive: isActiveCandidate,
     active: isActiveCandidate,
+    showPrice: showPriceCandidate,
     minPrice: explicitMin !== undefined ? explicitMin : undefined,
     priceMin: (explicitMin ?? p.priceMin) !== undefined ? (explicitMin ?? p.priceMin) : undefined,
     maxPrice: explicitMax !== undefined ? explicitMax : undefined,
@@ -1247,6 +1255,13 @@ export function normalizeServiceItem(s: unknown): ServiceItem {
                 ? Boolean(customData.isAvailable)
                 : true;
 
+  const showPriceCandidate =
+    s.showPrice !== undefined
+      ? Boolean(s.showPrice)
+      : customData.showPrice !== undefined
+        ? Boolean(customData.showPrice)
+        : true;
+
   const badgeCandidate = s.badge ?? s.tag ?? s.label ?? customData.badge ?? customData.tag;
 
   return {
@@ -1258,6 +1273,7 @@ export function normalizeServiceItem(s: unknown): ServiceItem {
     active: isActiveCandidate,
     isAvailable: isActiveCandidate,
     available: isActiveCandidate,
+    showPrice: showPriceCandidate,
     ...(descCandidate !== undefined ? { description: descCandidate as string, desc: descCandidate as string, details: descCandidate as string } : {}),
     ...(imageCandidate !== undefined ? { imageUrl: imageCandidate as string, image: imageCandidate as string, photo: imageCandidate as string } : {}),
     ...(badgeCandidate !== undefined ? { badge: String(badgeCandidate), tag: String(badgeCandidate) } : {}),
