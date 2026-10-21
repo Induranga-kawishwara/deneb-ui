@@ -25,6 +25,13 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Checkout DENEB Core source
+        uses: actions/checkout@v4
+        with:
+          repository: deneb-ui/core
+          ref: main
+          path: .sync/deneb-core
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
@@ -38,7 +45,8 @@ jobs:
         run: |
           TARGET_VERSION="${{ github.event.client_payload.version || github.event.inputs.version || 'latest' }}"
           echo "Updating DENEB packages to: $TARGET_VERSION"
-          npm install @deneb-ui/ui@$TARGET_VERSION @deneb-ui/cli@$TARGET_VERSION --save || echo "Installed latest available."
+          npm install @deneb-ui/core@$TARGET_VERSION --save-exact
+          npm install @deneb-ui/ui@$TARGET_VERSION @deneb-ui/cli@$TARGET_VERSION --no-save
 
       - name: Run DENEB Synchronization Engine
         run: node scripts/sync-deneb-core.mjs

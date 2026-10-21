@@ -103,11 +103,14 @@ SOCIAL & BUSINESS
   <HeritageCollage />          — Multi-image brand story / about collage for Heritage or About sections
 
 STOREFRONT SECTIONS
+  <Icon name="car" fieldPath="common.featureIcon" /> — Editable built-in SVG icon; use Icon/EditableIcon instead of hardcoded icon markup when the merchant can change it
   <Hero />                     — Full-width hero with image, headline, subheadline, CTA
   <Navbar />                   — Responsive header with logo, nav links, search, cart icon
   <Footer />                   — Site footer with links, social, contact
   <AnnouncementBar />          — Dismissible top-of-page promotional banner
   <ProductCard />              — Product tile with image, name, price, badge, Add-to-Cart
+  <UniversalCard />            — Multi-industry listing card for products, books, menus, property, services, memberships, and equipment
+  <VehicleCard vehicleId="..." /> — Automotive listing card driven by cards.vehicles.<id>; companion exports: EditableBrandCard, EditableBodyTypeCard, and EditableShowroomCard
   <ProductGrid />              — Paginated product grid with search + category filter. Auto-loads from useSiteCatalog() or accepts products array.
   <ProductDetail />            — Full product detail layout
   <PlatformProductDetail />    — Recommended for /products/detail route; auto-loads product by URL param via useSiteApi()

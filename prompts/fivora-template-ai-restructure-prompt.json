@@ -112,6 +112,11 @@
       ]
     },
     "listsAndCards": {
+      "preferredComponents": [
+        "Use UniversalCard for reusable multi-industry entity listings instead of cloning bespoke card markup.",
+        "Use VehicleCard for automotive inventory backed by cards.vehicles.<id>; use EditableBrandCard, EditableBodyTypeCard, and EditableShowroomCard for related automotive views.",
+        "Use Icon or EditableIcon with a fieldPath for merchant-editable icon choices instead of hardcoded SVG markup."
+      ],
       "atomicityRule": "One repeated visual/business entity equals one list item containing all fields and images for that entity.",
       "cardinality": {
         "minItems": {
